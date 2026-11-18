@@ -1,14 +1,24 @@
+
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "./icon.png";
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Covenant Research — Open Reports for Curious Minds",
   description:
     "Clear, carefully sourced reports on new ideas in science, mathematics, and computing. Independent research, free for everyone.",
+
+  verification: {
+    google: "TGzvwljpsdhfTrGUYdMDkqZFYS1cHDW6mvl7k--5tuc",
+  },
+
   openGraph: {
     title: "Covenant Research — Open Reports for Curious Minds",
     description:
@@ -17,12 +27,11 @@ export const metadata: Metadata = {
   },
 };
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
-
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="en" className={inter.className}>
       <head>
